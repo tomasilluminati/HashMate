@@ -1,0 +1,309 @@
+## IDENTIFIABLE ALGORITHMS (In alphabetical order)
+
+- 1Password(Agile Keychain)
+- 1Password(Cloud Keychain)
+- 7-zip
+- AIX(smd5)
+- AIX(ssha1)
+- AIX(ssha256)
+- AIX(ssha512)
+- Adler-32
+- Android Backup
+- Android FDE ≤ 4.3
+- Android PIN
+- Apache MD5
+- Argon2d
+- Argon2i
+- Argon2id
+- BLAKE2-224
+- BLAKE2-256
+- BLAKE2-384
+- BLAKE2b-512
+- BSDi Crypt
+- BigCrypt
+- BitLocker
+- Bitcoin / Litecoin
+- Blake2
+- Blake2b
+- Blake2b-256
+- Blake2s
+- Blowfish(OpenBSD)
+- CRAM-MD5
+- CRC-16
+- CRC-16-CCITT
+- CRC-24
+- CRC-32
+- CRC-32B
+- CRC-64
+- CRC-96(ZIP)
+- Cisco Type 4
+- Cisco Type 7
+- Cisco Type 8
+- Cisco Type 9
+- Cisco VPN Client(PCF-File)
+- Cisco-ASA(MD5)
+- Cisco-IOS(MD5)
+- Cisco-IOS(SHA-256)
+- Cisco-PIX(MD5)
+- Citrix Netscaler
+- Clavister Secure Gateway
+- Crypt16
+- CryptoCurrency(Adress)
+- CryptoCurrency(PrivateKey)
+- DES(Oracle)
+- DES(Unix)
+- DEScrypt
+- DNSSEC(NSEC3)
+- Dahua
+- Django(DES Crypt Wrapper)
+- Django(MD5)
+- Django(PBKDF2-HMAC-SHA1)
+- Django(PBKDF2-HMAC-SHA256)
+- Django(SHA-1)
+- Django(SHA-256)
+- Django(SHA-384)
+- Django(bcrypt)
+- Django(bcrypt-SHA256)
+- Domain Cached Credentials
+- Domain Cached Credentials 2
+- Double MD5
+- Double SHA-1
+- Drupal > v7.x
+- ELF-32
+- EPi
+- EPiServer 6.x < v4
+- EPiServer 6.x ≥ v4
+- Eggdrop IRC Bot
+- Electrum Wallet (Salt-Type 1-3)
+- Electrum Wallet (Salt-Type 4)
+- Electrum Wallet (Salt-Type 5)
+- Ethereum Pre-Sale Wallet, PBKDF2-HMAC-SHA256
+- Ethereum Wallet, PBKDF2-HMAC-SHA256
+- FCS-16
+- FCS-32
+- FNV-132
+- FNV-164
+- Fairly Secure Hashed Password
+- Fletcher-32
+- Fortigate(FortiOS)
+- FreeBSD MD5
+- GHash-32-3
+- GHash-32-5
+- GOST CryptoPro S-Box
+- GOST R 34.11-94
+- GRUB 2
+- HMAC-MD5
+- HMAC-SHA1
+- HMAC-SHA256
+- HMAC-SHA512
+- Half MD5
+- Haval-128
+- Haval-160
+- Haval-192
+- Haval-224
+- Haval-256
+- IKE-PSK MD5
+- IKE-PSK SHA1
+- IP.Board ≥ v2+
+- IPMI2 RAKP HMAC-SHA1
+- JWT (JSON Web Token)
+- Joaat
+- Joomla < v2.5.18
+- Joomla ≥ v2.5.18
+- Juniper Netscreen/SSG(ScreenOS)
+- Keccak-224
+- Keccak-256
+- Keccak-384
+- KeePass 1 AES (without keyfile)
+- KeePass 1 TwoFish (with keyfile)
+- KeePass 2 AES (with keyfile)
+- KeePass 2 AES (without keyfile)
+- Keepass 1 AES / without keyfile
+- Keepass 1 Twofish / with keyfile
+- Keepass 2 AES / with keyfile
+- Keepass 2 AES / without keyfile
+- Kerberos 5 AS-REP etype 23
+- Kerberos 5 AS-REQ Pre-Auth
+- Kerberos 5 TGS-REP etype 17 (AES128-CTS-HMAC-SHA1-96)
+- Kerberos 5 TGS-REP etype 18 (AES256-CTS-HMAC-SHA1-96)
+- Kerberos 5 TGS-REP etype 23
+- Kerberos 5, etype 17, Pre-Auth
+- Kerberos 5, etype 17, Pre-Auth (with salt)
+- Kerberos 5, etype 18, Pre-Auth
+- Kerberos 5, etype 18, Pre-Auth (with salt)
+- LDAP(SSHA-512)
+- LM
+- Lastpass
+- Lineage II C4
+- LinkedIn
+- Lotus Notes/Domino 5
+- Lotus Notes/Domino 6
+- Lotus Notes/Domino 8
+- MD2
+- MD4
+- MD5
+- MD5 Crypt
+- MD5(APR)
+- MD5(Chap)
+- MS Office 2016 - SheetProtection
+- MSSQL(2000)
+- MSSQL(2005)
+- MSSQL(2008)
+- MSSQL(2012)
+- MSSQL(2014)
+- MangosWeb Enhanced CMS
+- MediaWiki
+- Microsoft MSTSC(RDP-File)
+- Microsoft Office 2007
+- Microsoft Office 2010
+- Microsoft Office 2013
+- Microsoft Office 2016 - SheetProtection
+- Microsoft Office ≤ 2003 (MD5+RC4)
+- Microsoft Office ≤ 2003 (SHA1+RC4)
+- Microsoft Outlook PST
+- Minecraft(AuthMe Reloaded)
+- Minecraft(xAuth)
+- Monero
+- MyBB ≥ v1.2+
+- MySQL Challenge-Response Authentication (SHA1)
+- MySQL323
+- MySQL4.1
+- MySQL5.x
+- NTHash(FreeBSD Variant)
+- NTLM
+- NetNTLMv1-VANILLA / NetNTLMv1+ESS
+- NetNTLMv2
+- Netscape LDAP SSHA
+- OSX v10.4
+- OSX v10.5
+- OSX v10.6
+- OSX v10.7
+- OSX v10.8
+- OSX v10.9
+- Open Document Format (ODF) 1.2 (SHA-256, AES)
+- Oracle 11g/12c
+- Oracle 7-10g
+- Oracle H: Type (Oracle 7+), DES(Oracle)
+- PANAMA
+- PBKDF2(Atlassian)
+- PBKDF2(Cryptacular)
+- PBKDF2(Dwayne Litzenberger)
+- PBKDF2-HMAC-SHA256(PHP)
+- PBKDF2-SHA1(Generic)
+- PBKDF2-SHA256(Generic)
+- PBKDF2-SHA512(Generic)
+- PDF 1.1 - 1.3 (Acrobat 2 - 4)
+- PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #1
+- PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2
+- PDF 1.4 - 1.6 (Acrobat 5 - 8)
+- PDF 1.7 Level 3 (Acrobat 9)
+- PDF 1.7 Level 8 (Acrobat 10 - 11)
+- PHPS
+- PHPass' Portable Hash
+- PKZIP (Compressed Multi-File)
+- PKZIP (Compressed)
+- PKZIP (Mixed Multi-File Checksum-Only)
+- PKZIP (Mixed Multi-File)
+- PKZIP (Uncompressed)
+- PKZIP Master Key
+- PKZIP Master Key (6 byte optimization)
+- Palshop CMS
+- PeopleSoft
+- PostgreSQL Challenge-Response Authentication (MD5)
+- PostgreSQL MD5
+- PrestaShop
+- RACF
+- RAR3-hp
+- RAR3-p (Compressed)
+- RAR3-p (Uncompressed)
+- RAR5
+- RAdmin v2.x
+- RIPEMD-128
+- RIPEMD-160
+- RIPEMD-256
+- RIPEMD-320
+- RSA/DSA/EC/OpenSSH Private Keys ($4$)
+- Redmine Project Management Web App
+- SAM(LM_Hash:NT_Hash)
+- SAP CODVN B (BCODE)
+- SAP CODVN F/G (PASSCODE)
+- SAP CODVN H (PWDSALTEDHASH) iSSHA-1
+- SCRAM Hash
+- SHA-1
+- SHA-1 Crypt
+- SHA-1(Oracle)
+- SHA-224
+- SHA-256
+- SHA-256 Crypt
+- SHA-384
+- SHA-512
+- SHA-512 Crypt
+- SHA3-224
+- SHA3-256
+- SHA3-384
+- SHA3-512
+- SM3
+- SMF ≥ v1.1
+- SSHA-1(Base64)
+- SSHA-512(Base64)
+- Salsa10
+- Salsa20
+- SecureZIP AES-128
+- SecureZIP AES-192
+- SecureZIP AES-256
+- Siemens-S7
+- SipHash
+- Skein-1024
+- Skein-1024(384)
+- Skein-1024(512)
+- Skein-256
+- Skein-256(128)
+- Skein-256(160)
+- Skein-256(224)
+- Skein-384
+- Skein-512
+- Skein-512(128)
+- Skein-512(160)
+- Skein-512(224)
+- Skein-512(256)
+- Skein-512(384)
+- Skype
+- Snefru-256
+- Sun MD5 Crypt
+- Sybase ASE
+- Telegram Desktop 1.3.9
+- Telegram Desktop >= 2.1.14-beta / 2.2.0
+- Telegram Mobile App Passcode (SHA256)
+- Tiger-128
+- Tiger-160
+- Tiger-192
+- Traditional DES
+- VNC
+- Ventrilo
+- Whirlpool
+- WinZip
+- Woltlab Burning Board 3.x
+- Woltlab Burning Board 4.x
+- Wordpress v2.6.0/2.6.1
+- Wordpress ≥ v2.6.2
+- XOR-32
+- ZipMonster
+- bcrypt
+- bcrypt(SHA-256)
+- hMailServer
+- iSCSI CHAP Authentication
+- iTunes backup < 10.0
+- iTunes backup >= 10.0
+- md5apr1
+- net-md5
+- nsldaps
+- osCommerce
+- phpBB v3.x
+- scrypt
+- vBulletin < v3.8.5
+- vBulletin ≥ v3.8.5
+- xt:Commerce
+- yescrypt
+
+
+#### TOTAL: 304
