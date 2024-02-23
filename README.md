@@ -1,0 +1,2 @@
+# HashMate
+A Hash toolkit
