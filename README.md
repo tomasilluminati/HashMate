@@ -80,6 +80,10 @@ Example:
 python3 hashmate.py --calculate --string 'Hello World' -oN ./myfile.txt
 ```
 
+```sh
+python3 hashmate.py --calculate --string 'Hello World' -s password -oN ./myfile.txt
+```
+
 ```sh 
 python3 hashmate.py --calculate --file ./myfile.txt --algorithm sha256 -oN ./myfile.txt
 ```
@@ -123,6 +127,7 @@ python3 hashmate.py --dehash -hash 'b10a8db164e0754105b7a99be72e3fe5' -oN ./myfi
 - `--string`: String to work
 - `--file`: Path to the file.
 - `--dir`: Path to the directory.
+- `-s`: Salt for the hash
 - `--algorithm`: Hash algorithm to use (Default SHA256).
 - `-oN`: Export the file (Name with extension).
 - `--block-size`: Block Size.
@@ -141,6 +146,7 @@ python3 hashmate.py --dehash -hash 'b10a8db164e0754105b7a99be72e3fe5' -oN ./myfi
 ### Options for dehash
 
 - `--hash`: Hash to work.
+- `--salt-wordlist`: Path to salts wordlist
 - `-t THREADS`: Number of threads to dehash (Default 4).
 - `--wordlist`: Path to the wordlist (Only .txt files).
 
