@@ -41,9 +41,10 @@ def print_manual():
 
     CALCULATE OPTIONS 
     
-        --string STRING       String to encrypt
+        --string STRING       String to hash
         --file FILE           Path to the file
         --dir DIRECTORY       Path to the directory
+        --salt                Salt to add to the hash
         -oN EXPORT            Export the file (Name with extension)
         --algorithm ALGORITHM Hash algorithm to use (Default SHA256)
         --block-size SIZE     Block Size
@@ -63,7 +64,8 @@ def print_manual():
     
     
     DEHASH OPTIONS
-    
+
+        --salt-wordlist       Path to the salt wordlist
         --hash HASH           Hash to analyze
         --wordlist WORDLIST   Path to the wordlist (Only .txt)
         -t THREADS            Number of threads to dehash
