@@ -26,7 +26,7 @@ HashMate is a versatile toolkit for performing various hash operations efficient
    - [Options for compare](#options-for-compare)
    - [Options for dehash](#options-for-dehash)
 - [Calculate and dehash Algorithms List](#calculate-and-dehash-algorithms-list)
-- [Identifiable Algorithms List](#algotrith-list-id-hash)
+- [Identifiable Algorithms List](#identifiable-algotrith-list-id-hash)
 - [Extras](#extras)
 - [Contributing](#contributing)
 - [License](#license)
@@ -170,7 +170,7 @@ The following list specifies those algorithms that can be calculated and hashed.
 - RIPEMD-160 (ripemd160)
 - SM3 (sm3)
 
-## Algotrith List (id-hash)
+## Identifiable Algotrith List (id-hash)
 
 This files provides various types of hashes used in systems and applications for securing sensitive information, primarily passwords. It lists algorithms like MD5, SHA-1, bcrypt, and many others
 
