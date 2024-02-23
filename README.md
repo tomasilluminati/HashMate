@@ -176,7 +176,7 @@ This files provides various types of hashes used in systems and applications for
 
 **FULL LIST (NAMES ONLY):** [ALGORITHMS](others/Identifiable_Algorithms.md) **(304 Algorithms)**
 
-**RE & ALGORITHMS FULL LIST:** [RE & ALGORITHMS](../lib/hash_lib.py) **(298 Regular Expressions)**
+**RE & ALGORITHMS FULL LIST:** [RE & ALGORITHMS](lib/hash_lib.py) **(298 Regular Expressions)**
 
 ## Extras!!
 
