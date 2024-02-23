@@ -25,9 +25,13 @@ def is_a_hash(hash_input):
     return False
 
 
-def calculate_string_hash(string, algorithm):
+def calculate_string_hash(string, algorithm, salt=None):
 
     string = string.encode()
+
+    if salt != None:
+        string += salt.encode()
+    
 
     if algorithm == "sha1":
         hash_calculated = hashlib.sha1(string).hexdigest()
@@ -82,7 +86,12 @@ def calculate_string_hash(string, algorithm):
     return hash_calculated
 
 
-def calculate_file_hash(path, algorithm, block_size):
+def calculate_file_hash(path, algorithm, block_size, salt=None):
+    
+    if salt != None:
+        
+        salt = salt.encode()
+    
     if algorithm == "sha1":
         hash_calculated = hashlib.sha1()
     elif algorithm == "sha224":
@@ -134,6 +143,11 @@ def calculate_file_hash(path, algorithm, block_size):
     # Calculate the file hash in blocks
     with open(path, 'rb') as file:
         for block in iter(lambda: file.read(block_size), b''):
+            
+            if salt != None:
+                
+                block = block + salt
+            
             if algorithm == "crc32":
                 crc32_calculated = zlib.crc32(block, crc32_calculated)
             elif algorithm == "doublemd5":
@@ -150,8 +164,6 @@ def calculate_file_hash(path, algorithm, block_size):
         return '%08x' % (crc32_calculated & 0xffffffff)
     elif algorithm == "doublemd5":
         return double_hash_calculated.hexdigest()  
-    elif algorithm == "doublesha1":
-        return double_hash_calculated.hexdigest() 
     else:
         return hash_calculated.hexdigest()
 
@@ -196,143 +208,106 @@ def detect_hash_type_dehash(hash_value):
     # If it doesn't match any known type
     return 'Error'
 
-def dehashing(wordlist, hash_value, hash_functions):
+def dehashing(wordlist, hash_value, hash_functions, salts=[]):
 
+    if salts == None:
+        salts = [""]
+
+        
     for hash_type, hash_func in hash_functions.items():
         for word in wordlist:
-            if hash_type == "crc32":  
-                word_hash = hash_func(word.encode())
-            elif hash_type == "ripemd160":
-                
-                word_hash = hashlib.new("ripemd160", word.encode()).hexdigest()
-                
-            elif hash_type == "md4":
-                
-                word_hash = hashlib.new("md4", word.encode()).hexdigest()
-                
-            elif hash_type == "md5-sha1":
-                
-                word_hash = hashlib.new("md5-sha1", word.encode()).hexdigest()
-            
-            elif hash_type == "sm3":
-                
-                word_hash = hashlib.new("sm3", word.encode()).hexdigest()
-                
-            elif hash_type == "sha3-224":
-                
-                word_hash = hashlib.new("sha3_224", word.encode()).hexdigest()
-                
-            elif hash_type == "sha3-384":
-                
-                word_hash = hashlib.new("sha3_384", word.encode()).hexdigest()
-                
-            elif hash_type == "sha512-256":
-                
-                word_hash = hashlib.new("sha512_256", word.encode()).hexdigest()
-            
-            elif hash_type == "sha3-256":
-                
-                word_hash = hashlib.new("sha3_256", word.encode()).hexdigest()
-                
-            elif hash_type == "sha3-512":
-                
-                word_hash = hashlib.new("sha3_512", word.encode()).hexdigest()
-                
-            elif hash_type == "sha512-224":
-                
-                word_hash = hashlib.new("sha512_224", word.encode()).hexdigest()
-                
-            elif hash_type == "whirlpool":
-                
-                word_hash = hashlib.new("whirlpool", word.encode()).hexdigest()
-                
-                
-            elif hash_type == "doublemd5":
-                
-                word_hash = hashlib.md5(word.encode()).hexdigest() 
-                word_hash = hashlib.md5(word_hash.encode()).hexdigest()  
+            for salt in salts:
 
-            else:
-                word_hash = hash_func(word.encode()).hexdigest()
+                if hash_type == "crc32":  
+                    word_hash = hash_func((word + salt).encode())
+                elif hash_type == "ripemd160":
+                    word_hash = hashlib.new("ripemd160", (word + salt).encode()).hexdigest()
+                elif hash_type == "md4":
+                    word_hash = hashlib.new("md4", (word + salt).encode()).hexdigest()
+                elif hash_type == "md5-sha1":
+                    word_hash = hashlib.new("md5-sha1", (word + salt).encode()).hexdigest()
+                elif hash_type == "sm3":
+                    word_hash = hashlib.new("sm3", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-224":
+                    word_hash = hashlib.new("sha3_224", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-384":
+                    word_hash = hashlib.new("sha3_384", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha512-256":
+                    word_hash = hashlib.new("sha512_256", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-256":
+                    word_hash = hashlib.new("sha3_256", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-512":
+                    word_hash = hashlib.new("sha3_512", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha512-224":
+                    word_hash = hashlib.new("sha512_224", (word + salt).encode()).hexdigest()
+                elif hash_type == "whirlpool":
+                    word_hash = hashlib.new("whirlpool", (word + salt).encode()).hexdigest()
+                elif hash_type == "doublemd5":
+                    word_hash = hashlib.md5((word + salt).encode()).hexdigest() 
+                    word_hash = hashlib.md5(word_hash.encode()).hexdigest()  
+                else:
+                    word_hash = hash_func((word + salt).encode()).hexdigest()
 
-            if word_hash == hash_value:
-                return word
-    
+                if word_hash == hash_value:
+                    
+                    return word, salt
+                
     return "Error"
 
-def dehashing_threading(wordlist, hash_value, hash_functions, result):
 
-    total_combinations = len(wordlist) * len(hash_functions)
+def dehashing_threading(wordlist, hash_value, hash_functions, result, salts=[], salt_result=[]):
+
+    
+
+    if salts == None:
+        salts = [""]
+
+
+    total_combinations = len(wordlist) * len(hash_functions) * len(salts)
     current_iteration = 0
 
     for hash_type, hash_func in hash_functions.items():
         for word in wordlist:
-            
-            current_iteration += 1
-            show_progress(current_iteration, total_combinations)
-            
-            
-            
-            if hash_type == "crc32": 
-                word_hash = hash_func(word.encode())
-            elif hash_type == "ripemd160":
-                
-                word_hash = hashlib.new("ripemd160", word.encode()).hexdigest()
-            
-            elif hash_type == "md4":
-                
-                word_hash = hashlib.new("md4", word.encode()).hexdigest()
-                
-            elif hash_type == "md5-sha1":
-                
-                word_hash = hashlib.new("md5-sha1", word.encode()).hexdigest()
-            
-            elif hash_type == "sm3":
-                
-                word_hash = hashlib.new("sm3", word.encode()).hexdigest()
-                
-            elif hash_type == "sha3-224":
-                
-                word_hash = hashlib.new("sha3_224", word.encode()).hexdigest()
-                
-            elif hash_type == "sha3-384":
-                
-                word_hash = hashlib.new("sha3_384", word.encode()).hexdigest()
-                
-            elif hash_type == "sha512-256":
-                
-                word_hash = hashlib.new("sha512_256", word.encode()).hexdigest()
-            
-            elif hash_type == "sha3-256":
-                
-                word_hash = hashlib.new("sha3_256", word.encode()).hexdigest()
-                
-            elif hash_type == "sha3-512":
-                
-                word_hash = hashlib.new("sha3_512", word.encode()).hexdigest()
-                
-            elif hash_type == "sha512-224":
-                
-                word_hash = hashlib.new("sha512_224", word.encode()).hexdigest()
-                
-            elif hash_type == "whirlpool":
-                
-                word_hash = hashlib.new("whirlpool", word.encode()).hexdigest()
-                
-            
-                
-            elif hash_type == "doublemd5":
-                
-                word_hash = hashlib.md5(word.encode()).hexdigest()  
-                word_hash = hashlib.md5(word_hash.encode()).hexdigest()  
-            
-            else:
-                word_hash = hash_func(word.encode()).hexdigest()
+            for salt in salts:
+                current_iteration += 1
+                show_progress(current_iteration, total_combinations)
 
-            if word_hash == hash_value:
-                result.append(word)
-    
+                if hash_type == "crc32": 
+                    word_hash = hash_func((word + salt).encode())
+                elif hash_type == "ripemd160":
+                    word_hash = hashlib.new("ripemd160", (word + salt).encode()).hexdigest()
+                elif hash_type == "md4":
+                    word_hash = hashlib.new("md4", (word + salt).encode()).hexdigest()
+                elif hash_type == "md5-sha1":
+                    word_hash = hashlib.new("md5-sha1", (word + salt).encode()).hexdigest()
+                elif hash_type == "sm3":
+                    word_hash = hashlib.new("sm3", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-224":
+                    word_hash = hashlib.new("sha3_224", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-384":
+                    word_hash = hashlib.new("sha3_384", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha512-256":
+                    word_hash = hashlib.new("sha512_256", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-256":
+                    word_hash = hashlib.new("sha3_256", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha3-512":
+                    word_hash = hashlib.new("sha3_512", (word + salt).encode()).hexdigest()
+                elif hash_type == "sha512-224":
+                    word_hash = hashlib.new("sha512_224", (word + salt).encode()).hexdigest()
+                elif hash_type == "whirlpool":
+                    word_hash = hashlib.new("whirlpool", (word + salt).encode()).hexdigest()
+                elif hash_type == "doublemd5":
+                    word_hash = hashlib.md5((word + salt).encode()).hexdigest()
+                    word_hash = hashlib.md5(word_hash.encode()).hexdigest()
+                else:
+                    word_hash = hash_func((word + salt).encode()).hexdigest()
+
+                if word_hash == hash_value:
+                    result.append(word)
+                    salt_result.append(salt)
+
     return "Error"
+
 
 
 def show_progress(iteration, total):
