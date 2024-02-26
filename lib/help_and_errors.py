@@ -65,7 +65,6 @@ def print_manual():
     
     DEHASH OPTIONS
 
-        --salt-wordlist       Path to the salt wordlist
         --hash HASH           Hash to analyze
         --wordlist WORDLIST   Path to the wordlist (Only .txt)
         -t THREADS            Number of threads to dehash
