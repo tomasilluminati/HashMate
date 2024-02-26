@@ -37,7 +37,8 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                             "sha3-256",
                             "sha3-512",
                             "sha512-224",
-                            "whirlpool"]
+                            "whirlpool",
+                            "ntlm"]
     
     
 
@@ -186,17 +187,15 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                 try:
                     init_banner()
                     
-                    if salt != None:
-                        string_hash = calculate_string_hash(string, algorithm, salt)
-                    else:
-                        string_hash = calculate_string_hash(string, algorithm)
+
+
+                    string_hash = calculate_string_hash(string, algorithm)
                         
                     print(colorize_text("\n                        [!] INFORMATION", "cyan", "bold"))
                     print(colorize_text("\nDATE:", "cyan", "bold")+colorize_text(f" {formatted_date_time}", "yellow"))
                     print(colorize_text("\nSTRING:", "cyan", "bold")+colorize_text(f" {string}", "yellow"))
                     print(colorize_text("\nALGORITHM:", "cyan", "bold")+colorize_text(f" {algorithm.upper()}", "yellow"))
-                    if salt != None:
-                        print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt}", "yellow"))
+                    
                     print(colorize_text("\nLENGHT:", "cyan", "bold")+colorize_text(f" {len(string_hash)}", "yellow"))
                     print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {string_hash}", "yellow"))
                     separator("cyan")
@@ -207,8 +206,6 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         export_file.write("\n##############################\n\n")
                         export_file.write(f"DATE: {formatted_date_time}\n\n")
                         export_file.write(f"ALGORITHM: {algorithm.upper()}\n\n")
-                        if salt != None:
-                                export_file.write(f"SALT: {salt}\n\n")
                         export_file.write(f"LENGHT: {len(string_hash)}\n\n")
                         export_file.write(f"STRING: {string}\n\n")
                         export_file.write(f"HASH: {string_hash}\n\n")
@@ -221,16 +218,12 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
             else:
                 try:
                     init_banner()
-                    if salt != None:
-                        string_hash = calculate_string_hash(string, algorithm, salt)
-                    else:
-                        string_hash = calculate_string_hash(string, algorithm)
+
+                    string_hash = calculate_string_hash(string, algorithm)
                     print(colorize_text("\n                        [!] INFORMATION", "cyan", "bold"))
                     print(colorize_text("\nDATE:", "cyan", "bold")+colorize_text(f" {formatted_date_time}", "yellow"))
                     print(colorize_text("\nSTRING:", "cyan", "bold")+colorize_text(f" {string}", "yellow"))
                     print(colorize_text("\nALGORITHM:", "cyan", "bold")+colorize_text(f" {algorithm.upper()}", "yellow"))
-                    if salt != None:
-                        print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt}", "yellow"))
                     print(colorize_text("\nLENGHT:", "cyan", "bold")+colorize_text(f" {len(string_hash)}", "yellow"))
                     print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {string_hash}", "yellow"))
                     separator("cyan")
@@ -243,18 +236,14 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                 
                 try:
                     init_banner()
-                    
-                    if salt != None:
-                        file_hash = calculate_file_hash(file, algorithm, block_size, salt)
-                    else:
-                        file_hash = calculate_file_hash(file, algorithm, block_size)
+
+
+                    file_hash = calculate_file_hash(file, algorithm, block_size)
                     
                     print(colorize_text("\n                        [!] INFORMATION", "cyan", "bold"))
                     print(colorize_text("\nDATE:", "cyan", "bold")+colorize_text(f" {formatted_date_time}", "yellow"))
                     print(colorize_text("\nFILE:", "cyan", "bold")+colorize_text(f" {file}", "yellow"))
                     print(colorize_text("\nALGORITHM:", "cyan", "bold")+colorize_text(f" {algorithm.upper()}", "yellow"))
-                    if salt != None:
-                        print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt}", "yellow"))
                     print(colorize_text("\nLENGHT:", "cyan", "bold")+colorize_text(f" {len(file_hash)}", "yellow"))
                     print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {file_hash}", "yellow"))
                     separator("cyan")
@@ -265,8 +254,6 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         export_file.write("\n##############################\n\n")
                         export_file.write(f"DATE: {formatted_date_time}\n\n")
                         export_file.write(f"ALGORITHM: {algorithm.upper()}\n\n")
-                        if salt != None:
-                                export_file.write(f"SALT: {salt}\n\n")
                         export_file.write(f"LENGHT: {len(file_hash)}\n\n")
                         export_file.write(f"FILE: {file}\n\n")
                         export_file.write(f"HASH: {file_hash}\n\n")
@@ -279,18 +266,14 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
             else:
                 try:
                     init_banner()
-                    
-                    if salt != None:
-                        file_hash = calculate_file_hash(file, algorithm, block_size, salt)
-                    else:
-                        file_hash = calculate_file_hash(file, algorithm, block_size)
+
+
+                    file_hash = calculate_file_hash(file, algorithm, block_size)
                     
                     print(colorize_text("\n                        [!] INFORMATION", "cyan", "bold"))
                     print(colorize_text("\nDATE:", "cyan", "bold")+colorize_text(f" {formatted_date_time}", "yellow"))
                     print(colorize_text("\nFILE:", "cyan", "bold")+colorize_text(f" {file}", "yellow"))
                     print(colorize_text("\nALGORITHM:", "cyan", "bold")+colorize_text(f" {algorithm.upper()}", "yellow"))
-                    if salt != None:
-                        print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt}", "yellow"))
                     print(colorize_text("\nLENGHT:", "cyan", "bold")+colorize_text(f" {len(file_hash)}", "yellow"))
                     print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {file_hash}", "yellow"))
                     separator("cyan")
@@ -318,8 +301,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                     for path, hash_value in hashes.items():
                         print(colorize_text("\nFILE:", "cyan", "bold")+colorize_text(f" {path}", "yellow"))
                         print(colorize_text("\nALGORITHM:", "cyan", "bold")+colorize_text(f" {algorithm.upper()}", "yellow"))
-                        if salt != None:
-                            print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt}", "yellow"))
+    
                         print(colorize_text("\nLENGHT:", "cyan", "bold")+colorize_text(f" {len(hash_value)}", "yellow"))
                         print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {hash_value}", "yellow"))
                         separator("cyan")
@@ -327,8 +309,6 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         
                             export_file.write(f"FILE: {path}\n\n")
                             export_file.write(f"ALGORITHM: {algorithm.upper()}\n\n")
-                            if salt != None:
-                                export_file.write(f"SALT: {salt}\n\n")
                             export_file.write(f"LENGHT: {len(hash_value)}\n\n")
                             export_file.write(f"HASH: {hash_value}\n\n")
                             export_file.write(f"{'-'*100}\n\n")
@@ -351,8 +331,6 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                     for path, hash_value in hashes.items():
                         print(colorize_text("\nFILE:", "cyan", "bold")+colorize_text(f" {path}", "yellow"))
                         print(colorize_text("\nALGORITHM:", "cyan", "bold")+colorize_text(f" {algorithm.upper()}", "yellow"))
-                        if salt != None:
-                            print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt}", "yellow"))
                         print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {hash_value}", "yellow"))
                         separator("cyan")
                     
@@ -393,9 +371,6 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
             syexit()
         if block_size != None:
             print(not_required_errors("--block-size"))
-            syexit()
-        if salt != None:
-            print(not_required_errors("--salt"))
             syexit()
 
         
@@ -570,9 +545,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
         if block_size != None:
             print(not_required_errors("--block-size"))
             syexit()
-        if salt != None:
-            print(not_required_errors("--salt"))
-            syexit()
+
             
         if h1 == None or h2 == None or (h1 == None and h2 == None):
             
@@ -720,13 +693,6 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
         
         if hash != None:
             
-            if salt_wordlist != None:
-                salt_list = []
-                with open(salt_wordlist) as salts_file:
-                    for s in salts_file:
-                        s.strip("\n")
-                        salt_list.append(s)
-            
             
             
 
@@ -755,6 +721,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         "sha512-224": hashlib.new,
                         "sha512-256": hashlib.new,
                         "whirlpool": hashlib.new,
+                        "ntlm" : hashlib.new,
                     }
             
             
@@ -791,10 +758,8 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                     
                     start_time = time.time()
                     
-                    if salt_wordlist != None:
-                        result = dehashing(wordlist_content, hash, hash_functions, salt_list)
-                    else:
-                        result = dehashing(wordlist_content, hash, hash_functions)
+
+                    result = dehashing(wordlist_content, hash, hash_functions)
                     
                     total_time_seconds = calculate_total_time(start_time)
 
@@ -830,9 +795,8 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         print(colorize_text("\nTIME ELAPSED:", "cyan", "bold")+colorize_text(f" {total_time_formatted}", "yellow"))
                         print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {hash}", "yellow"))
                         print(colorize_text("\nWORDS TRIED:", "cyan", "bold")+colorize_text(f" {len(wordlist_content)}", "yellow"))
-                        if salt_wordlist != None:
-                            print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {result[1]}", "green", "bold"))
-                        print(colorize_text("\nRESULT:", "cyan", "bold")+colorize_text(f" {result[0]}", "green", "bold"))
+
+                        print(colorize_text("\nRESULT:", "cyan", "bold")+colorize_text(f" {result}", "green", "bold"))
                         separator("cyan")
                         with open(f"{export_path}", "w") as export_file:
                             export_file.write("##############################")
@@ -842,8 +806,8 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                             export_file.write(f"TIME ELAPSED: {total_time_formatted}\n\n")
                             export_file.write(f"HASH: {hash}\n\n")
                             export_file.write(f"WORDS TRIED: {len(wordlist_content)}\n\n")
-                            export_file.write(f"SALT: {result[1]}\n\n")
-                            export_file.write(f"RESULT: {result[0]}\n\n")
+
+                            export_file.write(f"RESULT: {result}\n\n")
 
                 
                 if len(wordlist_content) > 1:
@@ -874,14 +838,10 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                     progress_thread.start()
                     
                     
-                    salt_result = []
-                    
                     
                     for sublist in sublists:
-                        if salt_wordlist != None:
-                            thread = threading.Thread(target=dehashing_threading, args=(sublist, hash, hash_functions, resul_t, salt_list, salt_result))
-                        else:
-                            thread = threading.Thread(target=dehashing_threading, args=(sublist, hash, hash_functions, resul_t))
+
+                        thread = threading.Thread(target=dehashing_threading, args=(sublist, hash, hash_functions, resul_t))
                         thread.start()
                         threads.append(thread)
                     
@@ -921,8 +881,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         print(colorize_text("\nTIME ELAPSED:", "cyan", "bold")+colorize_text(f" {total_time_formatted}", "yellow"))
                         print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {hash}", "yellow"))
                         print(colorize_text("\nWORDS TRIED:", "cyan", "bold")+colorize_text(f" {len(wordlist_content)}", "yellow"))
-                        if salt_wordlist != None:
-                            print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt_result[0]}", "green", "bold"))
+                       
                         print(colorize_text("\nRESULT:", "cyan", "bold")+colorize_text(f" {resul_t[0]}", "green", "bold"))
                         separator("cyan")
                         with open(f"{export_path}", "w") as export_file:
@@ -933,7 +892,6 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                             export_file.write(f"TIME ELAPSED: {total_time_formatted}\n\n")
                             export_file.write(f"HASH: {hash}\n\n")
                             export_file.write(f"WORDS TRIED: {len(wordlist_content)}\n\n")
-                            export_file.write(f"SALT: {salt_result[0]}\n\n")
                             export_file.write(f"RESULT: {resul_t[0]}\n\n")
             
             
@@ -970,11 +928,8 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                     
                     start_time = time.time()
                     
-                    
-                    if salt_wordlist != None:
-                        result = dehashing(wordlist_content, hash, hash_functions, salt_list)
-                    else:
-                        result = dehashing(wordlist_content, hash, hash_functions)
+
+                    result = dehashing(wordlist_content, hash, hash_functions)
                     
                     total_time_seconds = calculate_total_time(start_time)
 
@@ -997,9 +952,8 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         print(colorize_text("\nTIME ELAPSED:", "cyan", "bold")+colorize_text(f" {total_time_formatted}", "yellow"))
                         print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {hash}", "yellow"))
                         print(colorize_text("\nWORDS TRIED:", "cyan", "bold")+colorize_text(f" {len(wordlist_content)}", "yellow"))
-                        if salt_wordlist != None:
-                            print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {result[1]}", "green", "bold"))
-                        print(colorize_text("\nRESULT:", "cyan", "bold")+colorize_text(f" {result[0]}", "green", "bold"))
+                    
+                        print(colorize_text("\nRESULT:", "cyan", "bold")+colorize_text(f" {result}", "green", "bold"))
                         separator("cyan")
 
                 
@@ -1034,14 +988,12 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                             sys.stdout.flush()
                             sys.exit(0)
 
-                    salt_result = []
                     
                     try:
                         for sublist in sublists:
-                            if salt_wordlist != None:
-                                thread = threading.Thread(target=dehashing_threading, args=(sublist, hash, hash_functions, resul_t, salt_list, salt_result))
-                            else:
-                                thread = threading.Thread(target=dehashing_threading, args=(sublist, hash, hash_functions, resul_t))
+
+                        
+                            thread = threading.Thread(target=dehashing_threading, args=(sublist, hash, hash_functions, resul_t))
                             
                             thread.start()
                             threads.append(thread)
@@ -1079,7 +1031,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
                         print(colorize_text("\nTIME ELAPSED:", "cyan", "bold")+colorize_text(f" {total_time_formatted}", "yellow"))
                         print(colorize_text("\nHASH:", "cyan", "bold")+colorize_text(f" {hash}", "yellow"))
                         print(colorize_text("\nWORDS TRIED:", "cyan", "bold")+colorize_text(f" {len(wordlist_content)}", "yellow"))
-                        print(colorize_text("\nSALT:", "cyan", "bold")+colorize_text(f" {salt_result[0]}", "green", "bold"))
+
                         print(colorize_text("\nRESULT:", "cyan", "bold")+colorize_text(f" {resul_t[0]}", "green", "bold"))
                         separator("cyan")
         
@@ -1123,9 +1075,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
         if h2 != None:
             print(not_required_errors("-h1"))
             syexit()
-        if salt != None:
-            print(not_required_errors("--salt"))
-            syexit()
+
             
             
         print_manual()
@@ -1164,9 +1114,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
         if h2 != None:
             print(not_required_errors("-h1"))
             syexit()
-        if salt != None:
-            print(not_required_errors("--salt"))
-            syexit()
+
             
         init_banner()
         print(colorize_text("\nALGORITHMS ALLOWED TO CALCULATE:", "cyan", "bold"))
@@ -1191,6 +1139,7 @@ def main(calculate, id_hash, compare, dehash, algorithm_list, hash, string, file
         print(colorize_text("\n                      [+] BLAKE2B", "green", "bold"))
         print(colorize_text("\n                      [+] BLAKE2S", "green", "bold"))
         print(colorize_text("\n                      [+] RIPEMD160", "green", "bold"))
+        print(colorize_text("\n                      [+] NTLM", "green", "bold"))
         
         separator("cyan")
         syexit()
