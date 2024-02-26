@@ -44,7 +44,6 @@ def print_manual():
         --string STRING       String to hash
         --file FILE           Path to the file
         --dir DIRECTORY       Path to the directory
-        -s                    Salt to add to the hash
         -oN EXPORT            Export the file (Name with extension)
         --algorithm ALGORITHM Hash algorithm to use (Default SHA256)
         --block-size SIZE     Block Size
