@@ -144,6 +144,7 @@ python3 hashmate.py --dehash -hash 'b10a8db164e0754105b7a99be72e3fe5' -oN ./myfi
 - `--salt-wordlist`: Path to salts wordlist
 - `-t THREADS`: Number of threads to dehash (Default 4).
 - `--wordlist`: Path to the wordlist (Only .txt files).
+- `-oN`: Export the file (Name with extension).
 
 ## Calculate and dehash algorithms List
 
