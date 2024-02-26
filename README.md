@@ -8,7 +8,7 @@ HashMate is a versatile toolkit for performing various hash operations efficient
 ![Python Version](https://img.shields.io/badge/python-3.11-blue)
 ![Algorithms](https://img.shields.io/badge/ID_Algorithms-304-yellow)
 ![Regular Expressions](https://img.shields.io/badge/Regular_Expressions-298-green)
-![Calculable Algorithms](https://img.shields.io/badge/Calculable_Algorithms-21-cyan)
+![Calculable Algorithms](https://img.shields.io/badge/Calculable_Algorithms-22-cyan)
 
 
 ## Table of Contents
