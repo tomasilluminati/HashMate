@@ -170,6 +170,7 @@ The following list specifies those algorithms that can be calculated and hashed.
 - Blake2b (blake2b)
 - RIPEMD-160 (ripemd160)
 - SM3 (sm3)
+- NTLM (ntlm)
 
 ## Identifiable Algotrith List (id-hash)
 
